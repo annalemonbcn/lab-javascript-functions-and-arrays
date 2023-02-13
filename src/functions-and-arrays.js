@@ -13,39 +13,112 @@ function maxOfTwoNumbers(num1, num2) {
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
 function findLongestWord(words) {
+  // Empty array
   if(words.length === 0){
     return null;
-  } else if(words.length === 1){
-    return(words[0]);
+  } 
+  // Not empty array
+  else {
+    // Array with only one word
+    if(words.length === 1){
+      return(words[0]);
+    }
   }
-  let indexOfLongestWord;
-  for(let i = 0; i < words.length; i++){
-    if(words[i].length < words[i.length-1]){
-      indexOfLongestWord = i;
-      console.log(indexOfLongestWord);
-    };
-  }
+  
 }
-
-
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
+function sumNumbers(numbers){
+  let totalSum = 0; 
+  // Empty array
+  if(numbers.length === 0){
+    return 0;
+  } 
+  // Not empty array
+  else {
+    // Array with only one number
+    if(numbers.length === 1){
+      return numbers[0];
+    } 
+    // Array with more than one number
+    else {
+      for(let i = 0; i < numbers.length; i++){
+        // Array with more than one number but all 0
+        if(numbers[i] === 0){
+          return 0;
+        } 
+        // Array with more than one number and all different numbers
+        else{
+          totalSum += numbers[i];
+        }
+      }
+      return totalSum;
+    }
+  }
+}
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
+function sum(numbers) {
+let totalSum = 0;
 
+  // Empty array
+  if(numbers.length === 0){
+    return 0;
+  } 
+  //Not empty array
+  else{
+    // Array with only one value
+    if(numbers.length === 1){
+      return numbers[0];
+    } else{
+      for(let i = 0; i < numbers.length; i++){
+        // Array with multiple values but all 0
+        if(numbers[i] === 0){
+          return 0;
+        }
+        // Array with multiple different values
+        else {
+          totalSum += numbers[i];
+        }
+      }
+      return totalSum;
+    }
+  }
+}
 
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg) {
+  let totalSum = 0;
+
+  // Empty array
+  if(numbersAvg.length === 0){
+    return null;
+  }
+  // Not empty array
+  else {
+    // Array with only one number
+    if(numbersAvg.length === 1){
+      return numbersAvg[0] / numbersAvg.length;
+    } 
+    // Array with more than one number
+    else {
+      // Loop array
+      for(let i = 0; i < numbersAvg.length; i++){
+        // Sum values
+        totalSum += numbersAvg[i];
+      }
+    }
+  }
+  // Return average
+  return totalSum / numbersAvg.length;
+}
 
 
 // Level 2: Array of strings
