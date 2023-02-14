@@ -81,8 +81,7 @@ function sumNumbers(numbers){
 
 // Iteration #3.1 Bonus:
 function sum(arr) {
-let totalSum = 0;
-
+  let totalSum = 0;
   // Empty array
   if(arr.length === 0){
     return 0;
@@ -101,7 +100,6 @@ let totalSum = 0;
     else{
       // Loop array
       for(let i = 0; i < arr.length; i++){
-
         // Type number
         if(typeof arr[i] === 'number'){
           totalSum += arr[i];
@@ -115,10 +113,9 @@ let totalSum = 0;
           totalSum += 1;
         } 
         // Unsupported data type
-        else {
-          
+        else if(typeof arr[i] === 'object'){
+          throw new Error("Unsupported data type sir or ma'am");
         }
-
       }
       return totalSum;
     }
@@ -227,19 +224,32 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray(wordsUnique){
-
+function uniquifyArray(words){
+  let allEquals = false;
+  let newArray = [];
   // Empty array
-  if(wordsUnique.length === 0){
+  if(words.length === 0){
     return null;
   }
   // Not empty array
   else {
+    for(let i = 0; i < words.length; i++){
+      // Check if all words are the same
+      if(i == words.length-1){
+        continue;
+      }
+      console.log(words.includes(words[i], i+1));
+      if(words.includes(words[i], i+1)){
+        allEquals = true;
+      }
+
+      if(allEquals){
+        return true;
+      }
+    }
     
   }
 }
-
-
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
