@@ -235,7 +235,17 @@ function uniquifyArray(words){
   }
   // Not empty array
   else {
-    
+    for(let i = 1; i < words.length; i++){
+      // If actual word is the same as prev
+      if(words.includes(words[i], i-1)){
+        // Increase equalsCounter
+        equalsCounter++;
+      }
+    }
+
+    if(equalsCounter == words.length){
+      return words;
+    }
   }
 }
 
@@ -330,7 +340,9 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix){
+  
+}
 
 
 
