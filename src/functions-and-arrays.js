@@ -225,28 +225,16 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(words){
+  let equalsCounter = 1;
   let allEquals = false;
   let newArray = [];
+
   // Empty array
   if(words.length === 0){
     return null;
   }
   // Not empty array
   else {
-    for(let i = 0; i < words.length; i++){
-      // Check if all words are the same
-      if(i == words.length-1){
-        continue;
-      }
-      console.log(words.includes(words[i], i+1));
-      if(words.includes(words[i], i+1)){
-        allEquals = true;
-      }
-
-      if(allEquals){
-        return true;
-      }
-    }
     
   }
 }
