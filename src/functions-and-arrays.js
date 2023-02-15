@@ -225,29 +225,27 @@ const wordsUnique = [
 ];
 
 function uniquifyArray(words){
+  let equalsCounter = 1;
   let allEquals = false;
   let newArray = [];
+
   // Empty array
   if(words.length === 0){
     return null;
   }
   // Not empty array
   else {
-    for(let i = 0; i < words.length; i++){
-      // Check if all words are the same
-      if(i == words.length-1){
-        continue;
-      }
-      console.log(words.includes(words[i], i+1));
-      if(words.includes(words[i], i+1)){
-        allEquals = true;
-      }
-
-      if(allEquals){
-        return true;
+    for(let i = 1; i < words.length; i++){
+      // If actual word is the same as prev
+      if(words.includes(words[i], i-1)){
+        // Increase equalsCounter
+        equalsCounter++;
       }
     }
-    
+
+    if(equalsCounter == words.length){
+      return words;
+    }
   }
 }
 
@@ -342,7 +340,9 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+function greatestProduct(matrix){
+  
+}
 
 
 
