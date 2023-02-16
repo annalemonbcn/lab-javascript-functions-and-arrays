@@ -226,8 +226,7 @@ const wordsUnique = [
 
 function uniquifyArray(words){
   let equalsCounter = 1;
-  let allEquals = false;
-  let newArray = [];
+  let newWords = [];
 
   // Empty array
   if(words.length === 0){
@@ -235,17 +234,14 @@ function uniquifyArray(words){
   }
   // Not empty array
   else {
-    for(let i = 1; i < words.length; i++){
-      // If actual word is the same as prev
-      if(words.includes(words[i], i-1)){
-        // Increase equalsCounter
-        equalsCounter++;
-      }
+    for(let i = 0; i < words.length; i++){
+      // If the word is NOT in the newArray
+      if(!(newWords.includes(words[i]))){
+        newWords.push(words[i]);
+      } 
     }
-
-    if(equalsCounter == words.length){
-      return words;
-    }
+    // Return newArray
+    return newWords;
   }
 }
 
@@ -340,8 +336,49 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
+const matrixA = [
+  [ 1,  2, 3, 4, 5],
+  [ 1, 20, 3, 4, 5],
+  [ 1, 20, 3, 4, 5],
+  [ 1, 20, 3, 4, 5],
+  [ 1,  4, 3, 4, 5],
+]
+greatestProduct(matrixA);
+
 function greatestProduct(matrix){
-  
+  let calc;
+  let greatestNum = 0;
+
+  // Loop array horizontally
+  for(let i= 0; i < matrix.length; i++){
+    // Loop inner array horizontally
+    for(let y = 0; y < matrix[i].length-3; y++){
+      // Do the product
+      calc = matrix[i][y] * matrix[i][y+1] * matrix[i][y+2] * matrix[i][y+3];
+
+      // Check if actual product is greater than the greatest
+      if(calc > greatestNum){
+        // Save new greatestProduct
+        greatestNum = calc;
+      }
+    }
+  }
+
+  // Loop array vertically
+  for(let i = 0; i < matrix.length-3; i++){
+    for(let y = 0; y < matrix[i].length; y++){
+      // Do the product
+      calc = matrix[i][y] * matrix[i+1][y] * matrix[i+2][y] * matrix[i+3][y];
+
+      // Check if actual product is greater than the greatest
+      if(calc > greatestNum){
+        // Save new greatestProduct
+        greatestNum = calc;
+      }
+    }
+  }
+  // Return greatestProduct
+  return greatestNum;
 }
 
 
