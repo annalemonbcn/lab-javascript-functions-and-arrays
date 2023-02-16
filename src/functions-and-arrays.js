@@ -1,41 +1,213 @@
 // Iteration #1: Find the maximum
-function maxOfTwoNumbers() {}
-
-
+function maxOfTwoNumbers(num1, num2) {
+  if(num1 > num2){
+    return num1;
+  } else if(num1 < num2){
+    return num2;
+  } else {
+    return num1;
+  }
+}
 
 // Iteration #2: Find longest word
 const words = ['mystery', 'brother', 'aviator', 'crocodile', 'pearl', 'orchard', 'crackpot'];
 
-function findLongestWord() {}
+function findLongestWord(words) {
+  let totalCharsOfWord;
+  let indexOfLongestWord = 0;
 
-
+  // Empty array
+  if(words.length === 0){
+    return null;
+  } 
+  // Not empty array
+  else {
+    // Array with only one word
+    if(words.length === 1){
+      return(words[0]);
+    }
+    // Array with more than one word
+    else {
+      // Loop array
+      for(let i = 0; i < words.length; i++){
+        // Skip first loop
+        if(i > 0){
+          // Compare length actual word against the longest one
+          if(words[i].length > words[indexOfLongestWord].length){
+            // If the actual word is longest than the longest one, we save their index
+            indexOfLongestWord = i;
+          }
+        }
+      }
+      // Return longest word
+      return words[indexOfLongestWord];
+    }
+  }
+}
 
 // Iteration #3: Calculate the sum
 const numbers = [6, 12, 1, 18, 13, 16, 2, 1, 8, 10];
 
-function sumNumbers() {}
-
+function sumNumbers(numbers){
+  let totalSum = 0; 
+  // Empty array
+  if(numbers.length === 0){
+    return 0;
+  } 
+  // Not empty array
+  else {
+    // Array with only one number
+    if(numbers.length === 1){
+      return numbers[0];
+    } 
+    // Array with more than one number
+    else {
+      for(let i = 0; i < numbers.length; i++){
+        // Array with more than one number but all 0
+        if(numbers[i] === 0){
+          return 0;
+        } 
+        // Array with more than one number and all different numbers
+        else{
+          totalSum += numbers[i];
+        }
+      }
+      // Return totalSum
+      return totalSum;
+    }
+  }
+}
 
 
 // Iteration #3.1 Bonus:
-function sum() {}
-
-
+function sum(arr) {
+  let totalSum = 0;
+  // Empty array
+  if(arr.length === 0){
+    return 0;
+  } 
+  // Not empty arr
+  else {
+    // Array with only one value
+    if(arr.length === 1){
+      // Just one value and its a number
+      if(typeof arr[0] === 'number'){
+        totalSum = arr[0];
+      } 
+      return totalSum;
+    } 
+    // Array with more than one value
+    else{
+      // Loop array
+      for(let i = 0; i < arr.length; i++){
+        // Type number
+        if(typeof arr[i] === 'number'){
+          totalSum += arr[i];
+        }
+        // Type string
+        else if(typeof arr[i] === 'string'){
+          totalSum += arr[i].length;
+        }
+        // Type boolean
+        else if(arr[i] === true){
+          totalSum += 1;
+        } 
+        // Unsupported data type
+        else if(typeof arr[i] === 'object'){
+          throw new Error("Unsupported data type sir or ma'am");
+        }
+      }
+      return totalSum;
+    }
+  }
+}
 
 // Iteration #4: Calculate the average
 // Level 1: Array of numbers
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
-function averageNumbers() {}
+function averageNumbers(numbersAvg){
+  let totalSum = 0;
 
+  // Empty array
+  if(numbersAvg.length === 0){
+    return null;
+  }
+  // Not empty array
+  else {
+    // Array with only one number
+    if(numbersAvg.length === 1){
+      return numbersAvg[0] / numbersAvg.length;
+    } 
+    // Array with more than one number
+    else {
+      // Loop array
+      for(let i = 0; i < numbersAvg.length; i++){
+        // Sum values
+        totalSum += numbersAvg[i];
+      }
+    }
+  }
+  // Return average
+  return totalSum / numbersAvg.length;
+}
 
 // Level 2: Array of strings
 const wordsArr = ['seat', 'correspond', 'linen', 'motif', 'hole', 'smell', 'smart', 'chaos', 'fuel', 'palace'];
 
-function averageWordLength() { }
+function averageWordLength(wordsAvg){
+  let totalSum = 0;
+
+  // Empty array
+  if(wordsAvg.length === 0){
+    return null;
+  } 
+  // Not empty array
+  else {
+    // Just 1 word
+    if(wordsAvg.length === 1){
+      totalSum = wordsAvg[0].length;
+      return totalSum;
+    } 
+    // More than 1 word
+    else {
+      for(let i = 0; i < wordsAvg.length; i++){
+        totalSum += wordsAvg[i].length;
+      }
+    }
+    return totalSum / wordsAvg.length;
+  }
+  
+}
 
 // Bonus - Iteration #4.1
-function avg() {}
+function avg(arr){
+  let totalSum = 0;
+
+  // Empty array
+  if(arr.length === 0){
+    return null;
+  }
+  // Not empty arr
+  else{
+    // Loop array
+    for(let i = 0; i < arr.length; i++){
+      // Type number
+      if(typeof arr[i] === 'number'){
+        totalSum += arr[i];
+      } 
+      // Type string
+      else if(typeof arr[i] === 'string'){
+        totalSum += arr[i].length;
+      }
+      // Type boolean: true case
+      else if(arr[i] === true){
+        totalSum += 1;
+      }
+    }
+    return totalSum / arr.length;
+  }
+}
 
 // Iteration #5: Unique arrays
 const wordsUnique = [
@@ -52,16 +224,54 @@ const wordsUnique = [
   'bring'
 ];
 
-function uniquifyArray() {}
+function uniquifyArray(words){
+  let equalsCounter = 1;
+  let newWords = [];
 
-
+  // Empty array
+  if(words.length === 0){
+    return null;
+  }
+  // Not empty array
+  else {
+    for(let i = 0; i < words.length; i++){
+      // If the word is NOT in the newArray
+      if(!(newWords.includes(words[i]))){
+        newWords.push(words[i]);
+      } 
+    }
+    // Return newArray
+    return newWords;
+  }
+}
 
 // Iteration #6: Find elements
 const wordsFind = ['machine', 'subset', 'trouble', 'starting', 'matter', 'eating', 'truth', 'disobedience'];
 
-function doesWordExist() {}
-
-
+function doesWordExist(wordsArr, word){
+  // Empty array
+  if(wordsArr.length === 0){
+    return null;
+  }
+  // Not empty array
+  else {
+    // Just one word in the array
+    if(wordsArr.length === 1){
+      // The one word its the word we are looking for
+      if(word === wordsArr[0]){
+        return true;
+      }
+    } 
+    // More than one word
+    else {
+      if(wordsArr.includes(word)){
+        return true;
+      } else{
+        return false;
+      }
+    }
+  }
+}
 
 // Iteration #7: Count repetition
 const wordsCount = [
@@ -78,9 +288,29 @@ const wordsCount = [
   'matter'
 ];
 
-function howManyTimes() {}
+function howManyTimes(wordsArr, word) {
+  let counter = 0;
+  // Empty array
+  if(wordsArr.length === 0){
+    return 0;
+  } 
+  // Not empty array
+  else {
+    for(let i = 0; i < wordsArr.length; i++){
+      if(wordsArr[i] === word){
+        counter += 1;
+      }
+    }
 
-
+    if(counter === 0){
+      return 0;
+    } else if (counter === 1){
+      return 1;
+    } else {
+      return counter;
+    }
+  }
+}
 
 // Iteration #8: Bonus
 const matrix = [
@@ -106,7 +336,50 @@ const matrix = [
   [1, 70, 54, 71, 83, 51, 54, 69, 16, 92, 33, 48, 61, 43, 52, 1, 89, 19, 67, 48]
 ];
 
-function greatestProduct() {}
+const matrixA = [
+  [ 1,  2, 3, 4, 5],
+  [ 1, 20, 3, 4, 5],
+  [ 1, 20, 3, 4, 5],
+  [ 1, 20, 3, 4, 5],
+  [ 1,  4, 3, 4, 5],
+]
+greatestProduct(matrixA);
+
+function greatestProduct(matrix){
+  let calc;
+  let greatestNum = 0;
+
+  // Loop array horizontally
+  for(let i= 0; i < matrix.length; i++){
+    // Loop inner array horizontally
+    for(let y = 0; y < matrix[i].length-3; y++){
+      // Do the product
+      calc = matrix[i][y] * matrix[i][y+1] * matrix[i][y+2] * matrix[i][y+3];
+
+      // Check if actual product is greater than the greatest
+      if(calc > greatestNum){
+        // Save new greatestProduct
+        greatestNum = calc;
+      }
+    }
+  }
+
+  // Loop array vertically
+  for(let i = 0; i < matrix.length-3; i++){
+    for(let y = 0; y < matrix[i].length; y++){
+      // Do the product
+      calc = matrix[i][y] * matrix[i+1][y] * matrix[i+2][y] * matrix[i+3][y];
+
+      // Check if actual product is greater than the greatest
+      if(calc > greatestNum){
+        // Save new greatestProduct
+        greatestNum = calc;
+      }
+    }
+  }
+  // Return greatestProduct
+  return greatestNum;
+}
 
 
 
